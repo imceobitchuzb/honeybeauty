@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-porcelain: #F8F5F0;
+  --color-ivory: #F1EBE3;
+  --color-espresso: #30231F;
+  --color-espresso-dark: #221815;
+  --color-espresso-light: #4A3934;
+  --color-rose-muted: #C7A19A;
+  --color-rose-soft: #D8BCB6;
+  --color-mauve-dusty: #A88983;
+  --color-taupe: #B6A69A;
+  --color-white: #FFFFFF;
+  --color-border: #E6DED8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-porcelain);
+    color: var(--color-espresso);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--color-porcelain);
+    color: var(--color-espresso);
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #C7A19A;
+    color: #FFFFFF;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid var(--color-espresso);
+    outline-offset: 3px;
+  }
+}
+
+/* Luxury hairline borders */
+.border-hairline {
+  border-color: #E6DED8;
+}
+
+/* Subtle luxury grain effect if needed */
+.bg-porcelain-gradient {
+  background: linear-gradient(180deg, #F8F5F0 0%, #F3EDE5 100%);
+}
+
+.bg-ivory-gradient {
+  background: linear-gradient(180deg, #F1EBE3 0%, #E9E1D8 100%);
+}
+
+.bg-espresso-gradient {
+  background: linear-gradient(145deg, #30231F 0%, #201714 100%);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
