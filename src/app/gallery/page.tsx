@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import GalleryView from "@/components/gallery/GalleryView";
 import { brandData } from "@/data/brand";
 import { Calendar, Instagram } from "lucide-react";
@@ -26,15 +27,13 @@ export default function GalleryPage() {
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="inline-flex items-center gap-2 px-6 py-3 bg-espresso text-porcelain text-xs uppercase tracking-widest font-medium hover:bg-espresso-light transition-colors"
             >
               <Calendar className="w-3.5 h-3.5 text-rose-soft" />
-              <span>Book Appointment</span>
-            </a>
+              <span>Reserve Appointment</span>
+            </Link>
             <a
               href={brandData.links.instagram}
               target="_blank"

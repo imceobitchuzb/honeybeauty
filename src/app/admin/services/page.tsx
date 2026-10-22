@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { servicesData } from "@/data/services";
 import { brandData } from "@/data/brand";
 import { Clock, ExternalLink, Sparkles, CheckCircle2 } from "lucide-react";
@@ -15,15 +16,14 @@ export default function AdminServicesPage() {
           </h1>
         </div>
 
-        <a
-          href={brandData.links.squareBooking}
+        <Link
+          href="/book"
           target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-espresso text-porcelain text-xs uppercase tracking-wider font-medium hover:bg-espresso-light"
         >
-          <span>Square Booking Portal</span>
+          <span>View Public Booking Page</span>
           <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

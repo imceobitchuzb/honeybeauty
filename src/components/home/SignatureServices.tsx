@@ -94,19 +94,17 @@ export default function SignatureServices() {
                     </span>
                   )}
                   <span className="text-[11px] text-espresso-muted">
-                    Reserve via Square
+                    Bespoke Artistry
                   </span>
                 </div>
 
-                <a
-                  href={brandData.links.squareBooking}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={service.bookingUrl || `/book?service=${service.id}`}
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-espresso text-porcelain text-[11px] uppercase tracking-[0.18em] font-medium transition-all hover:bg-espresso-light active:translate-y-px"
                 >
                   <Calendar className="w-3.5 h-3.5 text-rose-soft" />
                   <span>Book</span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -115,17 +113,15 @@ export default function SignatureServices() {
         {/* Advisory Note */}
         <div className="mt-12 p-4 sm:p-5 bg-ivory border border-stone-hairline text-center sm:flex items-center justify-between gap-4 text-xs font-sans text-espresso-muted">
           <p>
-            <strong className="text-espresso font-medium">Pricing Note:</strong> Live appointment availability and current pricing are maintained directly on our official Square booking system.
+            <strong className="text-espresso font-medium">Bespoke Consultations:</strong> Every appointment begins with an in-depth lash &amp; brow mapping assessment to complement your natural contours.
           </p>
-          <a
-            href={brandData.links.squareBooking}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book"
             className="mt-2 sm:mt-0 inline-flex items-center gap-1 text-espresso font-medium uppercase tracking-widest hover:text-rose-muted"
           >
-            <span>Open Square Scheduler</span>
+            <span>Book Your Session</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

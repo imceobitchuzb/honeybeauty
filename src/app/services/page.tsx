@@ -36,15 +36,13 @@ export default function ServicesPage() {
           </p>
 
           <div className="pt-2">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-colors shadow-sm"
             >
               <Calendar className="w-4 h-4 text-rose-soft" />
-              <span>Book Direct on Square</span>
-            </a>
+              <span>Reserve Your Treatment</span>
+            </Link>
           </div>
         </div>
 
@@ -54,22 +52,20 @@ export default function ServicesPage() {
             <Sparkles className="w-4 h-4 text-rose-muted flex-shrink-0 mt-0.5" />
             <div>
               <strong className="text-espresso font-medium block">
-                Official Square Scheduling
+                Direct Studio Booking &amp; Secure Payment
               </strong>
               <span>
-                Exact real-time calendar availability, service durations, and current pricing are confirmed directly inside the official Square portal.
+                Select your preferred date, choose your custom lash or brow set, and secure your appointment directly with instant confirmation.
               </span>
             </div>
           </div>
-          <a
-            href={brandData.links.squareBooking}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book"
             className="whitespace-nowrap inline-flex items-center gap-1.5 text-espresso font-medium uppercase tracking-widest hover:text-rose-muted"
           >
-            <span>Open Square Scheduler</span>
+            <span>Book Your Slot</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
 
         {/* Services List - Full Menu */}
@@ -143,19 +139,17 @@ export default function ServicesPage() {
                       )}
                       <span>·</span>
                       <span className="text-espresso font-medium">
-                        Live on Square
+                        Bespoke Studio Session
                       </span>
                     </div>
 
-                    <a
-                      href={brandData.links.squareBooking}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/book?service=${service.id}`}
                       className="inline-flex items-center gap-2 px-6 py-2.5 bg-espresso text-porcelain text-xs uppercase tracking-widest font-medium hover:bg-espresso-light transition-colors"
                     >
                       <Calendar className="w-3.5 h-3.5 text-rose-soft" />
-                      <span>Book on Square</span>
-                    </a>
+                      <span>Reserve Treatment</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -207,15 +201,13 @@ export default function ServicesPage() {
           </div>
 
           <div className="pt-4 text-center">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-espresso text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-colors"
             >
               <Calendar className="w-4 h-4 text-rose-soft" />
-              <span>Select Your Treatment on Square</span>
-            </a>
+              <span>Select Your Treatment &amp; Reserve Online</span>
+            </Link>
           </div>
         </div>
       </div>

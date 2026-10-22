@@ -119,15 +119,13 @@ export default function MeetArtistSection() {
 
             {/* CTAs */}
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a
-                href={brandData.links.squareBooking}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-colors shadow-sm"
               >
                 <Calendar className="w-4 h-4 text-rose-soft" />
                 <span>Book with Corina</span>
-              </a>
+              </Link>
 
               <a
                 href={brandData.links.instagram}

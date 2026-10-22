@@ -235,15 +235,13 @@ export default function AftercarePage() {
             Maintain your symmetry and fullness by reserving your refill or fresh treatment ahead of time.
           </p>
           <div className="pt-2">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-colors shadow-sm"
             >
               <Calendar className="w-4 h-4 text-rose-soft" />
-              <span>Book on Square</span>
-            </a>
+              <span>Reserve Your Next Fill Online</span>
+            </Link>
           </div>
         </div>
       </div>

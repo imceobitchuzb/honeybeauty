@@ -187,14 +187,12 @@ export default function HomeGalleryPreview() {
               <p className="text-xs sm:text-sm text-espresso-muted font-sans max-w-lg">
                 {activeItem.description}
               </p>
-              <a
-                href="https://flutterhoney-lash.square.site/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="px-5 py-2.5 bg-espresso text-porcelain text-xs uppercase tracking-widest font-medium hover:bg-espresso-light transition-colors whitespace-nowrap"
               >
                 Book This Look
-              </a>
+              </Link>
             </div>
           </div>
         </div>

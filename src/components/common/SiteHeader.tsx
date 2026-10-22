@@ -252,14 +252,9 @@ export default function SiteHeader() {
                     <span>Salon Lofts · Scottsdale Quarter</span>
                   </div>
                   <p className="text-[11px] text-espresso/70">Loft 28 · 15169 N Scottsdale Rd, Scottsdale, AZ</p>
-                  <a
-                    href={brandData.links.squareBooking}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block text-rose-muted hover:text-espresso font-medium tracking-wider pt-1.5 text-xs"
-                  >
-                    Official Square Booking Portal &rarr;
-                  </a>
+                  <p className="text-[11px] text-mauve-dusty font-medium tracking-wider pt-1.5">
+                    Private Luxury Studio · By Appointment
+                  </p>
                 </div>
               </div>
             </div>

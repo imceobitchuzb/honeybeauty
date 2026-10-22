@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Corina Gonzalez" }],
   creator: "Corina Gonzalez",
   publisher: "Flutterhoney",
-  metadataBase: new URL("https://flutterhoney-lash.square.site/"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://flutterhoney.netlify.app"),
   alternates: {
     canonical: "/",
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Flutterhoney | Bespoke Lashes & Brows by Corina · Scottsdale, AZ",
     description:
       "Soft luxury and personalized lash and brow artistry at Scottsdale Quarter, Loft 28. AZ State Board-approved lash trainer.",
-    url: "https://flutterhoney-lash.square.site/",
+    url: "/",
     siteName: "Flutterhoney",
     locale: "en_US",
     type: "website",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Calendar, Search, Sparkles, CheckCircle2 } from "lucide-react";
 import { brandData } from "@/data/brand";
 
@@ -11,9 +12,9 @@ const steps = [
   },
   {
     step: "02",
-    title: "Reserve on Square",
+    title: "Reserve Online",
     description:
-      "Choose your preferred date and time on our official Square scheduler. You receive instant confirmation and pre-appointment details directly to your email.",
+      "Choose your preferred date, select an open time slot, and securely guarantee your appointment with instant confirmation sent directly to your phone and email.",
     icon: Calendar,
   },
   {
@@ -74,15 +75,13 @@ export default function AppointmentJourney() {
 
         {/* Callout button */}
         <div className="mt-12 text-center">
-          <a
-            href={brandData.links.squareBooking}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book"
             className="inline-flex items-center gap-2 px-8 py-4 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-all shadow-md active:translate-y-px"
           >
             <Calendar className="w-4 h-4 text-rose-soft" />
-            <span>Open Square Scheduler</span>
-          </a>
+            <span>Reserve Your Appointment</span>
+          </Link>
         </div>
       </div>
     </section>

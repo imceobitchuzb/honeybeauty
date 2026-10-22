@@ -58,15 +58,13 @@ export default function LocationCTA() {
 
               {/* CTAs */}
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <a
-                  href={brandData.links.squareBooking}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/book"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-rose-muted text-espresso text-xs uppercase tracking-[0.2em] font-semibold hover:bg-rose-soft transition-colors shadow-lg active:translate-y-px"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Reserve Appointment</span>
-                </a>
+                </Link>
 
                 <a
                   href={brandData.location.mapsUrl}

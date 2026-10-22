@@ -73,10 +73,10 @@ export const brandData: BrandConfig = {
     parkingNote: "Complimentary garage parking is available at Scottsdale Quarter, with convenient elevator access directly adjacent to Salon Lofts.",
   },
   links: {
-    squareBooking: "https://flutterhoney-lash.square.site/",
+    squareBooking: "/book",
     instagram: "https://www.instagram.com/flutterhoney_/",
     instagramHandle: "@flutterhoney_",
-    salonLoftsProfile: "https://salonlofts.com/corina_gonzalez",
+    salonLoftsProfile: "/artist",
   },
   meta: {
     title: "Flutterhoney | Bespoke Lashes & Brows by Corina — Scottsdale, AZ",

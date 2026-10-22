@@ -24,15 +24,13 @@ export default function NotFound() {
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return Home</span>
           </Link>
-          <a
-            href={brandData.links.squareBooking}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-espresso/30 text-espresso text-xs uppercase tracking-widest font-medium hover:border-espresso hover:bg-white/40 transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 text-rose-muted" />
-            <span>Book on Square</span>
-          </a>
+            <span>Book Appointment</span>
+          </Link>
         </div>
       </div>
     </div>

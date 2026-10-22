@@ -37,7 +37,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Clients wanting refined everyday elegance, natural enhancement, or their first lash extension set.",
     estimatedDuration: "Approx. 1 hr 45 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=classic-full-set",
     features: [
       "Individual 1:1 lash mapping",
       "Custom curl selection (C, CC, D curls)",
@@ -59,7 +59,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Those desiring subtle drama, fluttery texture, and a soft Kim-K inspired wispy dimension.",
     estimatedDuration: "Approx. 2 hours",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=hybrid-textured-set",
     features: [
       "Custom blend of classic & volume fans",
       "Staggered lengths for natural wispiness",
@@ -81,7 +81,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Clients with sparse natural lashes seeking fullness, or anyone who loves a glamorous, plush lash line.",
     estimatedDuration: "Approx. 2 hr 15 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=volume-full-set",
     features: [
       "Bespoke handmade multi-lash fans",
       "Deep, rich, uniform lash line",
@@ -102,7 +102,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Existing clients maintaining their Classic, Hybrid, or Volume set every 2 to 3 weeks.",
     estimatedDuration: "Approx. 60–75 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=lash-extension-fill",
     features: [
       "Gentle removal of grown-out lashes",
       "Lash bath & pH preparation",
@@ -124,7 +124,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Clients wanting a low-maintenance, zero-extension enhancement that celebrates their natural lashes.",
     estimatedDuration: "Approx. 60 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=keratin-lash-lift-tint",
     features: [
       "Custom silicone shield sizing for tailored curl",
       "Keratin infusion to nourish lash cuticles",
@@ -146,7 +146,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Clients with stubborn, downward-growing hairs, thin arches, or anyone seeking a clean editorial feather brow.",
     estimatedDuration: "Approx. 50 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=brow-lamination-sculpt",
     features: [
       "Hair alignment & cuticle conditioning",
       "Precision tweezing & clean trimming",
@@ -167,7 +167,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Refining natural brow shape, enhancing blonde or light hairs, and framing the face with crisp elegance.",
     estimatedDuration: "Approx. 35 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=brow-shaping-tint",
     features: [
       "Facial bone-structure brow mapping",
       "Gentle wax formulated for sensitive skin",
@@ -188,7 +188,7 @@ export const servicesData: ServiceItem[] = [
     idealFor: "Smooth facial canvas, pre-event grooming, or sensitive skin waxing.",
     estimatedDuration: "Approx. 20 min",
     priceNote: "Verified live on Square",
-    bookingUrl: "https://flutterhoney-lash.square.site/",
+    bookingUrl: "/book?service=facial-waxing-grooming",
     features: [
       "Low-temperature gentle waxing formula",
       "Calming post-wax soothing botanicals",

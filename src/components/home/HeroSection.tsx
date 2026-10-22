@@ -43,15 +43,13 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 max-w-md">
-              <a
-                href={brandData.links.squareBooking}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium transition-all duration-200 hover:bg-espresso-light shadow-md hover:shadow-lg active:translate-y-px"
               >
                 <Calendar className="w-4 h-4 text-rose-soft" />
-                <span>Book on Square</span>
-              </a>
+                <span>Reserve Treatment</span>
+              </Link>
 
               <Link
                 href="/services"

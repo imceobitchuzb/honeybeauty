@@ -156,7 +156,7 @@ export default function SiteFooter() {
                   <strong className="text-espresso font-medium">Hours:</strong> By Appointment Only.
                 </p>
                 <p className="text-xs leading-relaxed">
-                  Real-time calendar availability and instant reservation confirmed directly via Square.
+                  Real-time calendar availability and instant reservation confirmed directly on our booking system.
                 </p>
                 <div className="pt-2">
                   <a
@@ -185,14 +185,12 @@ export default function SiteFooter() {
             <Link href="/privacy" className="hover:text-espresso transition-colors">
               Privacy Policy
             </Link>
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="hover:text-espresso transition-colors"
             >
-              Square Booking
-            </a>
+              Reserve Studio Time
+            </Link>
             <Link
               href="/admin"
               className="inline-flex items-center gap-1 text-espresso font-medium hover:text-rose-muted transition-colors"

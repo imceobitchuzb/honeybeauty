@@ -70,15 +70,13 @@ export default function ArtistryStyles() {
                 <p className="text-[11px] text-mauve-dusty italic mb-3">
                   Best for: {dir.bestFor}
                 </p>
-                <a
-                  href={brandData.links.squareBooking}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/book"
                   className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 border border-espresso/20 text-espresso text-[11px] uppercase tracking-[0.16em] font-medium hover:bg-espresso hover:text-white transition-colors"
                 >
                   <Calendar className="w-3 h-3" />
                   <span>Book This Style</span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

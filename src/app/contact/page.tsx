@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   MapPin,
   Calendar,
@@ -49,20 +50,18 @@ export default function ContactPage() {
                   Reserve Your Appointment
                 </h2>
                 <p className="text-xs sm:text-sm text-espresso-muted leading-relaxed">
-                  All appointments, reschedule requests, and real-time openings are processed directly through our official Square scheduling software.
+                  All appointments, refill sessions, and treatment bookings are processed securely online with instant confirmation.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={brandData.links.squareBooking}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/book"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium hover:bg-espresso-light transition-colors shadow-md"
                 >
                   <Calendar className="w-4 h-4 text-rose-soft" />
-                  <span>Open Square Booking</span>
-                </a>
+                  <span>Reserve Studio Time</span>
+                </Link>
 
                 <a
                   href={brandData.links.instagram}

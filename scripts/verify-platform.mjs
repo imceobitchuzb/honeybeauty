@@ -69,18 +69,25 @@ async function run() {
     await page.waitForTimeout(500);
     console.log("Selected time slot, reached Step 3 (Client Details)");
 
-    // Step 3: Fill details
+    // Step 3: Fill details & Payment
     await page.fill("input[placeholder='e.g. Lauren Martinez']", "Chloe Davenport");
     await page.fill("input[placeholder='lauren@example.com']", "chloe.d@example.com");
     await page.fill("input[placeholder='(480) 555-0123']", "4805551122");
 
-    // Complete booking
-    const completeBookingBtn = page.locator("button:has-text('Complete Reservation')");
+    // Payment fields
+    await page.fill("input[placeholder='Lauren Martinez']", "Chloe Davenport");
+    await page.fill("input[placeholder='4242 •••• •••• 4242']", "4242424242424242");
+    await page.fill("input[placeholder='MM/YY']", "12/28");
+    await page.fill("input[placeholder='123']", "888");
+    await page.fill("input[placeholder='85254']", "85254");
+
+    // Complete booking & payment
+    const completeBookingBtn = page.locator("button:has-text('Authorize & Reserve')");
     await completeBookingBtn.click();
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000);
 
     const bookingSuccess = await page.locator("h2:has-text('We Look Forward to Welcoming You')").isVisible();
-    console.log("Booking successfully confirmed:", bookingSuccess);
+    console.log("Booking successfully confirmed with payment authorization:", bookingSuccess);
   }
 
   console.log("\n=== 3. ADMIN AUTHENTICATION & ACCESS GATING ===");

@@ -95,6 +95,7 @@ export interface Appointment {
   id: string;
   bookingReference: string;
   squareBookingId?: string;
+  squarePaymentId?: string;
   customerName: string;
   customerEmail: string;
   customerPhone: string;
@@ -106,6 +107,10 @@ export interface Appointment {
   endAt: string; // ISO 8601
   durationMinutes: number;
   priceCents: number;
+  depositCents?: number;
+  paymentStatus?: "UNPAID" | "DEPOSIT_PAID" | "PAID_IN_FULL";
+  paymentMethod?: "CARD" | "APPLE_PAY" | "GOOGLE_PAY" | "STUDIO";
+  cardLast4?: string;
   status: "PENDING" | "CONFIRMED" | "CANCELLED" | "COMPLETED" | "NO_SHOW";
   notes?: string;
   isDemo?: boolean;

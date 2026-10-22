@@ -40,13 +40,13 @@ export default function PrivacyPage() {
 
           <section className="space-y-3">
             <h2 className="text-xl font-serif text-espresso font-medium">
-              1. Information Handling &amp; External Booking
+              1. Information Handling &amp; Secure Payment Processing
             </h2>
             <p>
-              This website does not directly collect, process, or store credit card numbers, payment credentials, or sensitive personal identity records.
+              When you reserve appointments or purchase aftercare boutique products directly on Flutterhoney, your booking information (name, contact email, and telephone number) is used solely to coordinate your treatment and deliver your order confirmations.
             </p>
             <p>
-              When you select &ldquo;Book Appointment&rdquo; or choose a service, you are redirected to our official booking scheduler hosted by <strong>Square (Block, Inc.)</strong> at <code>flutterhoney-lash.square.site</code>. All booking details, contact numbers, email addresses, and payment transactions are processed directly by Square under their industry-standard security and PCI-compliant privacy protocols.
+              All payment transactions are encrypted using bank-grade SSL and processed through PCI-DSS Level 1 compliant gateways powered by Square (Block, Inc.). We never store raw credit card numbers or security codes on our application servers.
             </p>
             <div className="pt-1">
               <a
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-espresso font-medium underline underline-offset-4 hover:text-rose-muted"
               >
-                <span>Read Square&apos;s Official Privacy and Security Policy</span>
+                <span>Read Square&apos;s Official Privacy and Security Standards</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

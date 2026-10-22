@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Eye, X, ChevronLeft, ChevronRight, Calendar, Sparkles } from "lucide-react";
 import { galleryItems, GalleryItem } from "@/data/gallery";
 import { brandData } from "@/data/brand";
@@ -195,15 +196,13 @@ export default function GalleryView() {
               <p className="text-xs sm:text-sm text-espresso-muted font-sans max-w-lg">
                 {activeItem.description}
               </p>
-              <a
-                href={brandData.links.squareBooking}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-espresso text-porcelain text-xs uppercase tracking-widest font-medium hover:bg-espresso-light transition-colors whitespace-nowrap"
               >
                 <Calendar className="w-3.5 h-3.5 text-rose-soft" />
                 <span>Book This Look</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

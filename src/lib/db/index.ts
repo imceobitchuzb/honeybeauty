@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import os from "os";
 import crypto from "crypto";
 import {
   User,
@@ -23,8 +24,28 @@ interface DatabaseSchema {
   auditLogs: AuditLog[];
 }
 
-const DATA_DIR = path.join(process.cwd(), ".data");
-const DB_FILE = path.join(DATA_DIR, "db.json");
+function resolveDataPaths() {
+  const isServerless =
+    Boolean(process.env.NETLIFY) ||
+    Boolean(process.env.VERCEL) ||
+    Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
+
+  if (isServerless) {
+    const tmpDataDir = path.join(os.tmpdir(), "flutterhoney-data");
+    return {
+      dir: tmpDataDir,
+      file: path.join(tmpDataDir, "db.json"),
+    };
+  }
+
+  const localDir = path.join(process.cwd(), ".data");
+  return {
+    dir: localDir,
+    file: path.join(localDir, "db.json"),
+  };
+}
+
+const { dir: DATA_DIR, file: DB_FILE } = resolveDataPaths();
 
 const defaultProducts: Product[] = [
   {
@@ -269,8 +290,12 @@ class Database {
   }
 
   private ensureDataDir() {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+    try {
+      if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+      }
+    } catch (err) {
+      console.warn("Could not create data directory, operating in-memory:", err);
     }
   }
 
