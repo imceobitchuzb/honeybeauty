@@ -33,5 +33,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local database storage
+.data/
+
 # edge / browser artifacts
 screenshots/

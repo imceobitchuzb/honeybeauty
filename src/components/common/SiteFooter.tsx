@@ -1,9 +1,18 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Calendar, MapPin, Sparkles } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, Instagram, Calendar, MapPin, Sparkles, ShoppingBag, Shield } from "lucide-react";
 import { brandData } from "@/data/brand";
 
 export default function SiteFooter() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  // Don't render public footer on admin routes
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-porcelain border-t border-stone-hairline text-espresso transition-colors">
@@ -21,21 +30,19 @@ export default function SiteFooter() {
               </h2>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a
-                href={brandData.links.squareBooking}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium transition-all duration-200 hover:bg-espresso-light shadow-sm"
               >
                 <Calendar className="w-4 h-4 text-rose-soft" />
                 <span>Book Appointment</span>
-              </a>
+              </Link>
               <Link
-                href="/services"
+                href="/shop"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-espresso/30 text-espresso text-xs uppercase tracking-[0.2em] font-medium transition-all duration-200 hover:border-espresso hover:bg-white/40"
               >
-                <span>View Full Menu</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ShoppingBag className="w-3.5 h-3.5 text-rose-muted" />
+                <span>Shop Aftercare</span>
               </Link>
             </div>
           </div>
@@ -74,8 +81,13 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5 text-sm font-sans">
                 <li>
-                  <Link href="/" className="text-espresso-muted hover:text-espresso transition-colors">
-                    Home
+                  <Link href="/book" className="text-espresso font-medium hover:text-rose-muted transition-colors">
+                    Book Treatment
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/shop" className="text-espresso font-medium hover:text-rose-muted transition-colors">
+                    Shop Aftercare
                   </Link>
                 </li>
                 <li>
@@ -163,7 +175,7 @@ export default function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom Bar: Copyright & Privacy */}
+      {/* Bottom Bar: Copyright, Admin & Privacy */}
       <div className="border-t border-stone-hairline py-6 text-xs text-espresso-muted font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>
@@ -179,8 +191,15 @@ export default function SiteFooter() {
               rel="noopener noreferrer"
               className="hover:text-espresso transition-colors"
             >
-              Square Booking Portal
+              Square Booking
             </a>
+            <Link
+              href="/admin"
+              className="inline-flex items-center gap-1 text-espresso font-medium hover:text-rose-muted transition-colors"
+            >
+              <Shield className="w-3 h-3 text-rose-muted" />
+              <span>Admin</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, Calendar } from "lucide-react";
+import { Menu, X, ArrowUpRight, Calendar, ShoppingBag } from "lucide-react";
 import { brandData } from "@/data/brand";
+import { useCart } from "@/context/CartContext";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/book", label: "Book" },
+  { href: "/shop", label: "Shop" },
   { href: "/artist", label: "The Artist" },
   { href: "/gallery", label: "Gallery" },
   { href: "/aftercare", label: "Aftercare" },
@@ -19,6 +22,7 @@ export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { toggleCart, itemCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +59,11 @@ export default function SiteHeader() {
     };
   }, [isOpen]);
 
+  // Don't render public header on admin routes
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
@@ -63,12 +72,12 @@ export default function SiteHeader() {
           : "bg-porcelain/90 backdrop-blur-sm border-b border-stone-hairline/50 py-3 sm:py-4 lg:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Wordmark */}
           <Link
             href="/"
-            className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-espresso rounded flex-shrink-0"
+            className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-espresso rounded pr-2 flex-shrink-0"
           >
             <span className="font-serif text-lg sm:text-2xl lg:text-3xl tracking-[0.1em] sm:tracking-[0.14em] uppercase text-espresso font-medium transition-colors group-hover:text-espresso-muted">
               Flutterhoney
@@ -81,7 +90,7 @@ export default function SiteHeader() {
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Main Navigation"
-            className="hidden lg:flex items-center gap-4 xl:gap-7 text-xs uppercase tracking-[0.14em] xl:tracking-[0.16em] font-sans font-medium"
+            className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs uppercase tracking-[0.12em] xl:tracking-[0.16em] font-sans font-medium"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -102,21 +111,33 @@ export default function SiteHeader() {
             })}
           </nav>
 
-          {/* Right CTA Button & Mobile Menu Toggle */}
+          {/* Right Controls: Bag & Booking CTA */}
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-none bg-espresso text-porcelain text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-medium transition-all duration-200 hover:bg-espresso-light active:translate-y-px whitespace-nowrap shadow-sm"
+            {/* Shopping Bag Button */}
+            <button
+              type="button"
+              onClick={toggleCart}
+              aria-label={`Shopping bag with ${itemCount} items`}
+              className="relative p-2 text-espresso hover:text-espresso-muted transition-colors rounded"
+            >
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-muted text-white text-[9px] font-medium flex items-center justify-center font-sans">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+
+            {/* Booking CTA */}
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 lg:px-5 py-1.5 sm:py-2.5 rounded-none bg-espresso text-porcelain text-[9.5px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-medium transition-all duration-200 hover:bg-espresso-light active:translate-y-px whitespace-nowrap shadow-sm"
             >
               <Calendar className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-rose-soft flex-shrink-0" />
-              <span>
-                Book<span className="hidden sm:inline lg:hidden xl:inline"> Appointment</span>
-              </span>
-            </a>
+              <span>Book<span className="hidden sm:inline lg:hidden xl:inline"> Appointment</span></span>
+            </Link>
 
-            {/* Mobile Menu Button (Only below lg:) */}
+            {/* Mobile Menu Button */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
@@ -142,7 +163,7 @@ export default function SiteHeader() {
             <div className="text-[10px] uppercase tracking-[0.24em] text-mauve-dusty font-medium pb-2 border-b border-stone-hairline">
               Explore Flutterhoney
             </div>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-3.5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -150,7 +171,7 @@ export default function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-xl font-serif tracking-wide py-1.5 flex items-center justify-between border-b border-stone-hairline/40 transition-colors ${
+                    className={`text-xl font-serif tracking-wide py-1 flex items-center justify-between border-b border-stone-hairline/40 transition-colors ${
                       isActive ? "text-espresso font-semibold" : "text-espresso/70 hover:text-espresso"
                     }`}
                   >
@@ -162,27 +183,26 @@ export default function SiteHeader() {
             </nav>
           </div>
 
-          <div className="pt-8 space-y-4 border-t border-stone-hairline">
-            <a
-              href={brandData.links.squareBooking}
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="pt-6 space-y-4 border-t border-stone-hairline">
+            <Link
+              href="/book"
+              onClick={() => setIsOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3.5 bg-espresso text-porcelain text-xs uppercase tracking-[0.2em] font-medium shadow-md hover:bg-espresso-light transition-colors"
             >
               <Calendar className="w-4 h-4 text-rose-soft" />
-              <span>Book Online on Square</span>
-            </a>
+              <span>Reserve Appointment</span>
+            </Link>
 
             <div className="text-center space-y-1 text-xs text-espresso-muted font-sans">
               <p className="font-medium text-espresso">Salon Lofts · Scottsdale Quarter</p>
               <p>Loft 28 · 15169 N Scottsdale Rd</p>
               <a
-                href={brandData.links.instagram}
+                href={brandData.links.squareBooking}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-rose-muted hover:text-espresso font-medium tracking-wider pt-1"
               >
-                Follow {brandData.links.instagramHandle} &rarr;
+                Official Square Booking Link &rarr;
               </a>
             </div>
           </div>

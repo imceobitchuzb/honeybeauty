@@ -4,6 +4,8 @@ import "./globals.css";
 import AnnouncementBar from "@/components/common/AnnouncementBar";
 import SiteHeader from "@/components/common/SiteHeader";
 import SiteFooter from "@/components/common/SiteFooter";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 import { brandData } from "@/data/brand";
 
 export const viewport: Viewport = {
@@ -78,71 +80,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Verified schema.org JSON-LD
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    name: brandData.name,
-    description: brandData.artist.bioShort,
-    url: brandData.links.squareBooking,
-    sameAs: [
-      brandData.links.instagram,
-      brandData.links.salonLoftsProfile,
-      brandData.links.squareBooking,
-    ],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "15169 N Scottsdale Rd, Loft 28",
-      addressLocality: "Scottsdale",
-      addressRegion: "AZ",
-      postalCode: "85254",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 33.6234,
-      longitude: -111.9261,
-    },
-    founder: {
-      "@type": "Person",
-      name: brandData.artist.fullName,
-      jobTitle: "Lash & Brow Specialist and AZ State Board-Approved Trainer",
-    },
-    priceRange: "$$",
-    paymentAccepted: "Cash, Credit Card, Square",
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:00",
-        closes: "18:00",
-        description: "By Appointment Only",
-      },
-    ],
-  };
-
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="font-sans antialiased bg-porcelain text-espresso selection:bg-rose-muted selection:text-white">
-        <AnnouncementBar />
-        <SiteHeader />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <SiteFooter />
+        <CartProvider>
+          <AnnouncementBar />
+          <SiteHeader />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <CartDrawer />
+          <SiteFooter />
+        </CartProvider>
       </body>
     </html>
   );

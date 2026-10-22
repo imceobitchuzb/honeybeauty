@@ -45,7 +45,7 @@ export const servicesData: ServiceItem[] = [
       "Preserves natural lash integrity",
     ],
     image:
-      "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "hybrid-textured-set",
