@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -49,6 +50,25 @@ export default function AdminShell({
   const pathname = usePathname();
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const orig = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = orig;
+      };
+    }
+  }, [mobileMenuOpen]);
 
   const handleLogout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -165,78 +185,98 @@ export default function AdminShell({
           </div>
         </header>
 
-        {/* Mobile Sidebar Overlay */}
-        {mobileMenuOpen && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            className="fixed inset-0 z-50 lg:hidden flex"
-          >
+        {/* Mobile Sidebar Overlay with Portal and Momentum Touch Scrolling */}
+        {mounted &&
+          mobileMenuOpen &&
+          createPortal(
             <div
-              className="fixed inset-0 bg-espresso/50 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            />
+              role="dialog"
+              aria-modal="true"
+              aria-label="Admin Navigation Menu"
+              className="fixed inset-0 z-[100] lg:hidden flex"
+            >
+              <div
+                className="fixed inset-0 bg-espresso/50 backdrop-blur-sm"
+                onClick={() => setMobileMenuOpen(false)}
+              />
 
-            <div className="relative w-72 max-w-xs bg-ivory border-r border-stone-hairline p-6 flex flex-col justify-between z-10 animate-fadeIn">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-stone-hairline pb-4">
-                  <div>
-                    <span className="font-serif text-xl uppercase tracking-widest text-espresso font-medium block">
-                      Flutterhoney
-                    </span>
-                    <span className="text-[9px] uppercase tracking-widest text-mauve-dusty font-semibold">
-                      Admin Console
-                    </span>
+              <div className="relative w-72 max-w-[85vw] bg-ivory border-r border-stone-hairline p-5 flex flex-col justify-between z-10 animate-fadeIn h-[100dvh]">
+                <div
+                  className="flex-1 overflow-y-auto overscroll-contain min-h-0 space-y-5 pr-1"
+                  style={{ WebkitOverflowScrolling: "touch" }}
+                >
+                  <div className="flex items-center justify-between border-b border-stone-hairline pb-3">
+                    <div>
+                      <span className="font-serif text-xl uppercase tracking-widest text-espresso font-medium block">
+                        Flutterhoney
+                      </span>
+                      <span className="text-[9px] uppercase tracking-widest text-mauve-dusty font-semibold">
+                        Admin Console
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-label="Close admin menu"
+                      className="p-1.5 text-espresso hover:text-espresso-muted rounded"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-1.5 text-espresso"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+
+                  <nav className="space-y-1">
+                    {adminNav.map((item) => {
+                      const Icon = item.icon;
+                      const isActive =
+                        item.href === "/admin"
+                          ? pathname === "/admin"
+                          : pathname.startsWith(item.href);
+
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`flex items-center gap-3 px-3 py-2.5 text-xs uppercase tracking-wider font-medium transition-colors rounded ${
+                            isActive
+                              ? "bg-espresso text-porcelain"
+                              : "text-espresso/70 hover:bg-porcelain hover:text-espresso"
+                          }`}
+                        >
+                          <Icon className="w-4 h-4 flex-shrink-0" />
+                          <span>{item.label}</span>
+                        </Link>
+                      );
+                    })}
+                  </nav>
                 </div>
 
-                <nav className="space-y-1">
-                  {adminNav.map((item) => {
-                    const Icon = item.icon;
-                    const isActive =
-                      item.href === "/admin"
-                        ? pathname === "/admin"
-                        : pathname.startsWith(item.href);
-
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`flex items-center gap-3 px-3 py-2 text-xs uppercase tracking-wider font-medium transition-colors ${
-                          isActive
-                            ? "bg-espresso text-porcelain"
-                            : "text-espresso/70 hover:bg-porcelain"
-                        }`}
-                      >
-                        <Icon className="w-4 h-4 flex-shrink-0" />
-                        <span>{item.label}</span>
-                      </Link>
-                    );
-                  })}
-                </nav>
+                <div className="pt-4 pb-2 border-t border-stone-hairline space-y-2 flex-shrink-0">
+                  <div className="text-xs pb-1">
+                    <p className="font-medium text-espresso truncate">{user.name}</p>
+                    <p className="text-[10px] text-mauve-dusty uppercase font-semibold">{user.role}</p>
+                  </div>
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="flex items-center justify-between px-3 py-2 bg-porcelain border border-stone-hairline text-[11px] text-espresso uppercase tracking-wider font-medium hover:border-espresso/40"
+                  >
+                    <span>View Public Site</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-mauve-dusty" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 bg-espresso text-porcelain text-xs uppercase tracking-wider font-medium"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Sign Out</span>
+                  </button>
+                </div>
               </div>
-
-              <div className="pt-4 border-t border-stone-hairline space-y-2">
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 bg-espresso text-porcelain text-xs uppercase tracking-wider font-medium"
-                >
-                  <LogOut className="w-4 h-4" />
-                  <span>Sign Out</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+            </div>,
+            document.body
+          )}
 
         {/* Content Viewport */}
         <main className="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto">
