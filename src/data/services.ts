@@ -45,7 +45,7 @@ export const servicesData: ServiceItem[] = [
       "Preserves natural lash integrity",
     ],
     image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "hybrid-textured-set",
@@ -67,7 +67,7 @@ export const servicesData: ServiceItem[] = [
       "Lightweight feel with enhanced fullness",
     ],
     image:
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "volume-full-set",
@@ -89,7 +89,7 @@ export const servicesData: ServiceItem[] = [
       "Maximum retention with proper aftercare",
     ],
     image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "lash-extension-fill",
@@ -210,7 +210,7 @@ export const stylingDirections: StylingDirection[] = [
     characteristics: ["1:1 Single Placement", "Subtle Curl & Natural Length", "Undetectable Bond Line", "Zero Weight Feel"],
     bestFor: "First-timers, active lifestyles, professional everyday aesthetic",
     image:
-      "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "wispy-hybrid",
@@ -221,7 +221,7 @@ export const stylingDirections: StylingDirection[] = [
     characteristics: ["Alternating Spikes & Fans", "Kim-K Inspired Texture", "Eye-Opening Lift", "Fluffy Feathered Ends"],
     bestFor: "Clients wanting modern editorial texture, dimension, and flattering flutter",
     image:
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "full-volume",
@@ -232,7 +232,7 @@ export const stylingDirections: StylingDirection[] = [
     characteristics: ["Ultra-Lightweight Micro Fans", "Dense Eyeliner Illusion", "Luxurious Drama", "Even Gradient Mapping"],
     bestFor: "Event beauty, sparse lash lines requiring density, glamour lovers",
     image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "lift-lamination",
@@ -243,6 +243,6 @@ export const stylingDirections: StylingDirection[] = [
     characteristics: ["Zero Extensions Required", "Keratin Nourishment", "Up to 8 Weeks Wear", "Brushed Up Model Brow"],
     bestFor: "Natural beauty enthusiasts, travelers, low-maintenance routines",
     image:
-      "https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?auto=format&fit=crop&w=800&q=80",
   },
 ];

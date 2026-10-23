@@ -11,12 +11,11 @@ import { useCart } from "@/context/CartContext";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/book", label: "Book" },
-  { href: "/shop", label: "Shop Boutique" },
+  { href: "/shop", label: "Shop" },
   { href: "/artist", label: "The Artist" },
   { href: "/gallery", label: "Gallery" },
   { href: "/aftercare", label: "Aftercare" },
-  { href: "/contact", label: "Contact & Studio" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {

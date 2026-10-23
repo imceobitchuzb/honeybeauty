@@ -107,7 +107,7 @@ const defaultProducts: Product[] = [
     priceCents: 6800,
     currency: "USD",
     imageUrl:
-      "https://images.unsplash.com/photo-1608248597359-5975253e7f41?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80",
     category: "aftercare",
     categoryLabel: "Keratin & Care",
     isPublished: true,
@@ -151,7 +151,7 @@ const defaultProducts: Product[] = [
     priceCents: 1600,
     currency: "USD",
     imageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80",
     category: "tools",
     categoryLabel: "Beauty Tools",
     isPublished: true,
@@ -264,7 +264,7 @@ const defaultDemoOrders: Order[] = [
         priceCents: 1600,
         quantity: 1,
         imageUrl:
-          "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80",
       },
     ],
     subtotalCents: 4400,
